@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">M&B Trends</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="productsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#electronics">Electronics</a>
+                </li>
+                <li><a class="dropdown-item" href="#jewelry">Jewelry</a></li>
+                <li>
+                  <a class="dropdown-item" href="#mensclothing"
+                    >Men's Clothing</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#womensclothing"
+                    >Women's Clothing</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="categories-link">Categories</a>
+            </li>
+            <li class="nav-item position-relative">
+              <a class="nav-link text-white" href="cart.html">
+                🛒 Cart
+                <span
+                  id="cart-count"
+                  class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                  >0</span
+                >
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="contact-link">Contact Us</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Carousel Section -->
+    <div id="shopCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            src="./assets/Apple-Watch-Series-10.webp"
+            class="d-block w-100"
+            alt="Apple Watch"
+          />
+          <div class="carousel-caption">
+            <h3>Apple Watch Editions Series 10</h3>
+            <p>
+              Stay connected, healthy, and active with the latest Apple Watch
+              Series.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./assets/Polaride-Camera.avif"
+            class="d-block w-100"
+            alt="Smartphone"
+          />
+          <div class="carousel-caption">
+            <h3>Latest Electronics</h3>
+            <p>
+              Discover the newest gadgets that make life easier and smarter.
+            </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            src="./assets/Nike-Shoe-Trendy-Fashion.avif"
+            class="d-block w-100"
+            alt="Fashion"
+          />
+          <div class="carousel-caption">
+            <h3>Trendy Fashion</h3>
+            <p>Shop the latest clothing and accessories for all seasons.</p>
+          </div>
+        </div>
+      </div>
+      <!-- Controls -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#shopCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#shopCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- Card Section -->
+    <section class="categories-section py-5" id="categories-section">
+      <div class="container">
+        <h2 class="mb-4 fw-bold text-center">Our Categories</h2>
+
+        <!-- Filter Buttons -->
+        <div
+          class="filter-buttons d-flex justify-content-center mb-4 flex-wrap gap-2"
+        >
+          <button
+            class="btn btn-primary btn-sm"
+            onclick="filterProducts('all')"
+          >
+            All
+          </button>
+          <button
+            class="btn btn-outline-primary btn-sm"
+            onclick="filterProducts('electronics')"
+          >
+            Electronics
+          </button>
+          <button
+            class="btn btn-outline-primary btn-sm"
+            onclick="filterProducts('jewelry')"
+          >
+            Jewelry
+          </button>
+          <button
+            class="btn btn-outline-primary btn-sm"
+            onclick="filterProducts('mens')"
+          >
+            Men's Clothing
+          </button>
+          <button
+            class="btn btn-outline-primary btn-sm"
+            onclick="filterProducts('womens')"
+          >
+            Women's Clothing
+          </button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row g-4" id="product-container"></div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <!-- ===== Footer Section ===== -->
+    <footer class="footer bg-dark text-light pt-5 pb-3 mt-5">
+      <div class="container">
+        <div class="row">
+          <!-- Logo & About -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <h5 class="fw-bold text-uppercase">M&B Trends</h5>
+            <p class="small text-secondary">
+              Your one-stop online shop for premium quality products at
+              unbeatable prices. Explore the latest trends in electronics,
+              fashion, and jewelry.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <h6 class="fw-bold text-uppercase mb-3">Quick Links</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">Home</a></li>
+              <li><a href="#" class="footer-link">About Us</a></li>
+              <li><a href="#" class="footer-link">Products</a></li>
+              <li><a href="#" class="footer-link">Categories</a></li>
+              <li><a href="#" class="footer-link">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Customer Support -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <h6 class="fw-bold text-uppercase mb-3">Customer Support</h6>
+            <ul class="list-unstyled">
+              <li><a href="#" class="footer-link">FAQs</a></li>
+              <li><a href="#" class="footer-link">Shipping & Returns</a></li>
+              <li><a href="#" class="footer-link">Order Tracking</a></li>
+              <li><a href="#" class="footer-link">Privacy Policy</a></li>
+              <li><a href="#" class="footer-link">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="col-md-3 col-sm-6 mb-4">
+            <h6 class="fw-bold text-uppercase mb-3" id="contact-section">
+              Contact Us
+            </h6>
+            <p class="small mb-1">
+              <i class="bi bi-geo-alt-fill me-2"></i>123, Sapthagiri
+              Circle,Anantapur,AP, India
+            </p>
+            <p class="small mb-1">
+              <i class="bi bi-envelope-fill me-2"></i>support@m&btrends.com
+            </p>
+            <p class="small mb-1">
+              <i class="bi bi-telephone-fill me-2"></i>+91 98765 43210
+            </p>
+            <div class="mt-3">
+              <a href="#" class="text-light me-3 fs-5"
+                ><i class="bi bi-facebook"></i
+              ></a>
+              <a href="#" class="text-light me-3 fs-5"
+                ><i class="bi bi-twitter"></i
+              ></a>
+              <a href="#" class="text-light me-3 fs-5"
+                ><i class="bi bi-instagram"></i
+              ></a>
+              <a href="#" class="text-light fs-5"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <hr class="border-secondary" />
+        <div class="text-center small text-secondary">
+          &copy; 2025 M&B Trends. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
